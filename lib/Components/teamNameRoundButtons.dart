@@ -12,6 +12,8 @@ class RoundedButton extends StatefulWidget {
 }
 
 class _RoundedButtonState extends State<RoundedButton> {
+  bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,19 +22,12 @@ class _RoundedButtonState extends State<RoundedButton> {
       child: ElevatedButton(
         onPressed: () {
           setState(() {
-            // Change the button color when clicked
-            if (buttonColor == Colors.white) {
-              buttonColor = Color(0XFFFF2882);
-              countryNameTextColor = Colors.white;
-            } else {
-              buttonColor = Colors.white;
-              countryNameTextColor = Color(0xffB2B2B2);
-            }
+            isSelected = !isSelected;
           });
         },
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.blue,
-          backgroundColor: buttonColor,
+          backgroundColor: isSelected ? Color(0XFFFF2882) : Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
           ),
@@ -50,7 +45,7 @@ class _RoundedButtonState extends State<RoundedButton> {
             Text(
               widget.buttonText,
               style: TextStyle(
-                color: countryNameTextColor,
+                color: isSelected ? Colors.white : Color(0xffB2B2B2),
                 fontSize: 16, // Increase the size of the text
               ),
             ),
