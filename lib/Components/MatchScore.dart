@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:khel_darpan/Components/predictButton.dart';
+import 'TeamnameAndScoreCard.dart';
 
-class TeamCard extends StatelessWidget {
+class ScoreCard extends StatelessWidget {
   final String teamName1;
   final String teamName2;
   final String logoPath1;
@@ -8,7 +10,7 @@ class TeamCard extends StatelessWidget {
   final int score1;
   final int score2;
 
-  TeamCard({
+  ScoreCard({
     required this.teamName1,
     required this.teamName2,
     required this.logoPath1,
@@ -37,33 +39,38 @@ class TeamCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              "Hockey",
-              style: TextStyle(fontSize: 20, color: Colors.white),
+            const Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Hockey",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Text(
+                    "Week 10",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
             ),
-            Text(
-              "Week10",
-              style: TextStyle(fontSize: 15, color: Colors.white),
+            const SizedBox(
+              height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  teamName1,
-                  style: TextStyle(fontSize: 24, color: Colors.white),
-                ),
-                Text(
-                  '$score1 - $score2',
-                  style: TextStyle(fontSize: 48, color: Colors.white),
-                ),
-                Text(
-                  teamName2,
-                  style: TextStyle(fontSize: 24, color: Colors.white),
-                ),
-              ],
-            ),
+            TeamAndScoreCard(
+                teamName1: teamName1,
+                teamName2: teamName2,
+                score1: score1,
+                score2: score2),
+            PredictButton(),
           ],
         ),
       ),

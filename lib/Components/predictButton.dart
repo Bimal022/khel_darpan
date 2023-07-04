@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:khel_darpan/Components/Constants/constants.dart';
 
-class RoundedButton extends StatefulWidget {
-  final String buttonText;
-  final String flagPath;
-
-  RoundedButton(this.buttonText, this.flagPath);
-
+class PredictButton extends StatefulWidget {
   @override
-  State<RoundedButton> createState() => _RoundedButtonState();
+  State<PredictButton> createState() => _PredictButtonState();
 }
 
-class _RoundedButtonState extends State<RoundedButton> {
+class _PredictButtonState extends State<PredictButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 150,
+      width: 100,
       margin: EdgeInsets.only(right: 8.0),
       child: ElevatedButton(
         onPressed: () {
@@ -37,24 +32,11 @@ class _RoundedButtonState extends State<RoundedButton> {
             borderRadius: BorderRadius.circular(20.0),
           ),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            CircleAvatar(
-              backgroundColor: Colors.white,
-              child: ImageIcon(
-                AssetImage(widget.flagPath),
-                size: 24, // Increase the size of the image
-              ),
-            ),
-            Text(
-              widget.buttonText,
-              style: TextStyle(
-                color: countryNameTextColor,
-                fontSize: 16, // Increase the size of the text
-              ),
-            ),
-          ],
+        child: Text(
+          "Predict",
+          style: TextStyle(
+            color: countryNameTextColor,
+          ),
         ),
       ),
     );
