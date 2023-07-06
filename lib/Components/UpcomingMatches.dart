@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khel_darpan/Components/Constants/constants.dart';
 
 class UpcomingEvents extends StatelessWidget {
   const UpcomingEvents({
@@ -27,13 +28,13 @@ class UpcomingEvents extends StatelessWidget {
             children: [
               Text(
                 "09:00",
-                style: TextStyle(
-                    color: Color(0xffFF7539), fontWeight: FontWeight.bold),
+                style:
+                    TextStyle(color: orangeColor, fontWeight: FontWeight.bold),
               ),
               Text(
                 "30 OCT",
                 style: TextStyle(
-                  color: Color(0xff909090),
+                  color: greyColor,
                 ),
               ),
             ],

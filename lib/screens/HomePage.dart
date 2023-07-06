@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:khel_darpan/Components/Constants/constants.dart';
 import 'package:khel_darpan/Components/ScoreCard.dart';
 import 'package:khel_darpan/Components/RoundedButton.dart';
-
+import '../Components/Constants/bottomNavigationBar.dart';
 import '../Components/UpcomingMatches.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: apnabottomNavigationBar(),
       body: Container(
-        margin: EdgeInsets.all(8.0),
+        // margin: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
           color: backgroundColor,
           borderRadius: BorderRadius.circular(10),
@@ -19,34 +20,41 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const CircleAvatar(
-                      radius: 30.0,
+                      radius: 25.0,
                       backgroundColor: Colors.white,
                       backgroundImage: AssetImage('assets/ring.png'),
                     ),
-                    Text(
+                    const Text(
                       'Live Score',
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 25.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    IconButton(
-                      icon: Icon(Icons.search),
-                      onPressed: () {
-                        // Perform search action
-                      },
+                    CircleAvatar(
+                      radius: 23,
+                      backgroundColor: Colors.white,
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.search,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {
+                          // Perform search action
+                        },
+                      ),
                     ),
                   ],
                 ),
               ),
               Container(
                 height: 80,
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
@@ -59,10 +67,34 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               /*Score And Prediction Card*/
-              ScoreCards(),
+              const ScoreCards(),
+              Container(
+                width: 330,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Matches",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: greyColor,
+                      ),
+                    ),
+                    Text(
+                      "See All",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: orangeColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               Container(
                 height: 300,
-                child: SingleChildScrollView(
+                child: const SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Column(
                     children: [
@@ -73,7 +105,7 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

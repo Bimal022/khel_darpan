@@ -6,3 +6,9 @@ Color countryNameTextColor = Color(0xffB2B2B2);
 
 //HomePage
 Color backgroundColor = Color(0xf7dad6d6);
+
+//Greish Color:
+Color greyColor = Color(0xff909090);
+
+//Orange Color:
+Color orangeColor = Color(0xffFF7539);
