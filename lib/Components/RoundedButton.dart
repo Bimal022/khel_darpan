@@ -17,7 +17,7 @@ class _RoundedButtonState extends State<RoundedButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 150,
+      width: 135,
       margin: EdgeInsets.only(right: 8.0),
       child: ElevatedButton(
         onPressed: () {
