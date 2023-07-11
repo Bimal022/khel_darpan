@@ -12,3 +12,10 @@ Color greyColor = Color(0xff909090);
 
 //Orange Color:
 Color orangeColor = Color(0xffFF7539);
+
+//TestStyle for medals page table
+const medalsTableTextStyle = TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.bold,
+  color: Color(0xff909090),
+);

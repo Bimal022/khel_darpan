@@ -9,7 +9,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: apnabottomNavigationBar(),
       body: Container(
         // margin: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(

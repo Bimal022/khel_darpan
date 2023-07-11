@@ -33,7 +33,7 @@ class _apnabottomNavigationBarState extends State<apnabottomNavigationBar> {
         BottomNavigationBarItem(
           label: widget.navBarText,
           icon: ImageIcon(
-            AssetImage("assets/icons/navigationIcons/analysis.png"),
+            AssetImage("assets/icons/navigationIcons/medals.png"),
           ),
         ),
         BottomNavigationBarItem(
