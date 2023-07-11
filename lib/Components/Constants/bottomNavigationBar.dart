@@ -1,43 +1,40 @@
 import 'package:flutter/material.dart';
 
-class apnabottomNavigationBar extends StatefulWidget {
-  late String navBarText = "";
-  @override
-  State<apnabottomNavigationBar> createState() =>
-      _apnabottomNavigationBarState();
-}
+class apnabottomNavigationBar extends StatelessWidget {
+  final int currentIndex;
+  final ValueChanged<int> onTap;
+  const apnabottomNavigationBar({
+    required this.currentIndex,
+    required this.onTap,
+  });
 
-class _apnabottomNavigationBarState extends State<apnabottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      currentIndex: currentIndex,
       type: BottomNavigationBarType.fixed,
-      onTap: (value) {
-        setState(() {
-          widget.navBarText = ".";
-        });
-      },
-      items: [
+      onTap: onTap,
+      items: const [
         BottomNavigationBarItem(
-          label: widget.navBarText,
+          label: 'Home',
           icon: ImageIcon(
             AssetImage("assets/icons/navigationIcons/home.png"),
           ),
         ),
         BottomNavigationBarItem(
-          label: widget.navBarText,
+          label: "Calender",
           icon: ImageIcon(
             AssetImage("assets/icons/navigationIcons/calendar.png"),
           ),
         ),
         BottomNavigationBarItem(
-          label: widget.navBarText,
+          label: "Medals",
           icon: ImageIcon(
-            AssetImage("assets/icons/navigationIcons/medals.png"),
+            AssetImage("assets/icons/navigationIcons/analysis.png"),
           ),
         ),
         BottomNavigationBarItem(
-          label: widget.navBarText,
+          label: "Profile",
           icon: ImageIcon(
             AssetImage("assets/icons/navigationIcons/profile.png"),
           ),
