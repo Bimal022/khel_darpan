@@ -13,7 +13,6 @@ class RoundedButton extends StatefulWidget {
 
 class _RoundedButtonState extends State<RoundedButton> {
   bool isSelected = false;
-
   @override
   Widget build(BuildContext context) {
     return Container(

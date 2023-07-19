@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:khel_darpan/screens/CalenderPage.dart';
 import 'package:khel_darpan/screens/HomePage.dart';
 import 'package:khel_darpan/screens/MedalsPage.dart';
+import 'package:khel_darpan/screens/ProfilePage.dart';
 import 'Components/Constants/bottomNavigationBar.dart';
 
 void main() => runApp(MyApp());
@@ -27,6 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
     HomePage(),
     CalenderPage(),
     MedalsPage(),
+    ProfilePage(),
   ];
 
   @override

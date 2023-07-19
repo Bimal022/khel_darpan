@@ -25,7 +25,7 @@ class TableContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(width: 10),
-            Text("1", style: medalsTableTextStyle),
+            Text("1", style: tableHeadingTextStyle),
             Container(
               child: Row(
                 children: [
@@ -34,19 +34,31 @@ class TableContent extends StatelessWidget {
                     width: 40,
                     height: 40,
                   ),
-                  Text("India", style: medalsTableTextStyle),
+                  Text("India", style: tableHeadingTextStyle),
                 ],
               ),
             ),
-            Text("1", style: medalsTableTextStyle),
+            Text("1",
+                style: TextStyle(
+                    color: Color(0xFFFFD700),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
             SizedBox(width: 6),
-            Text("1", style: medalsTableTextStyle),
+            Text("1",
+                style: TextStyle(
+                    color: Color(0xFFC0C0C0),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
             SizedBox(width: 6),
-            Text("1", style: medalsTableTextStyle),
+            Text("1",
+                style: TextStyle(
+                    color: Color(0xffCD7F32),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
             SizedBox(width: 6),
             Text(
               "0",
-              style: medalsTableTextStyle,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             SizedBox(
               width: 10,

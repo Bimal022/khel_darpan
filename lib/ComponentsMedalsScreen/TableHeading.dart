@@ -11,9 +11,9 @@ class TableHeading extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(width: 8),
-          Text("Position", style: medalsTableTextStyle),
+          Text("Position", style: tableHeadingTextStyle),
           SizedBox(width: 8),
-          Text("Country", style: medalsTableTextStyle),
+          Text("Country", style: tableHeadingTextStyle),
           SizedBox(width: 8),
           Image.asset(
             "assets/medals/gold.png",
@@ -35,7 +35,7 @@ class TableHeading extends StatelessWidget {
           SizedBox(width: 14),
           Text(
             "Total",
-            style: medalsTableTextStyle,
+            style: tableHeadingTextStyle,
           ),
         ],
       ),

@@ -93,14 +93,40 @@ class HomePage extends StatelessWidget {
               ),
               Container(
                 height: 300,
-                child: const SingleChildScrollView(
+                child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Column(
                     children: [
-                      UpcomingEvents(),
-                      UpcomingEvents(),
-                      UpcomingEvents(),
-                      UpcomingEvents(),
+                      UpcomingEvents(
+                        teamName1: "India",
+                        flagPath1: "assets/flags/india.png",
+                        teamName2: "Australia",
+                        flagPath2: "assets/flags/aus.png",
+                      ),
+                      UpcomingEvents(
+                        teamName1: "China",
+                        flagPath1: "assets/flags/china.png",
+                        teamName2: "France",
+                        flagPath2: "assets/flags/france.png",
+                      ),
+                      UpcomingEvents(
+                        teamName1: "Germany",
+                        flagPath1: "assets/flags/germany.png",
+                        teamName2: "Australia",
+                        flagPath2: "assets/flags/greatbritain.png",
+                      ),
+                      UpcomingEvents(
+                        teamName1: "Italy",
+                        flagPath1: "assets/flags/italy.png",
+                        teamName2: "Australia",
+                        flagPath2: "assets/flags/aus.png",
+                      ),
+                      UpcomingEvents(
+                        teamName1: "India",
+                        flagPath1: "assets/flags/india.png",
+                        teamName2: "Japan",
+                        flagPath2: "assets/flags/japan.png",
+                      ),
                     ],
                   ),
                 ),

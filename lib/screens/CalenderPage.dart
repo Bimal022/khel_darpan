@@ -5,6 +5,8 @@ class CalenderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("This Is for calender page");
+    return SafeArea(
+      child: const Text("This Is for calender page"),
+    );
   }
 }
