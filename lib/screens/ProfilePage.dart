@@ -102,6 +102,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: Text('User Profile'),
       ),
       body: ListView(
@@ -166,6 +167,7 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 Radio<Gender>(
                   value: Gender.Male,
+                  activeColor: Color(0xFFB917D8),
                   groupValue: selectedGender,
                   onChanged: (value) {
                     setState(() {
@@ -176,6 +178,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 Text('Male'),
                 Radio<Gender>(
                   value: Gender.Female,
+                  activeColor: Color(0xFFB917D8),
                   groupValue: selectedGender,
                   onChanged: (value) {
                     setState(() {
@@ -227,6 +230,9 @@ class _ProfilePageState extends State<ProfilePage> {
               _handleLogout();
             },
             child: Text('Logout'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color(0xFFB917D8),
+            ),
           ),
         ],
       ),

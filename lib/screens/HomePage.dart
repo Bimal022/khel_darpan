@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:khel_darpan/Components/Constants/constants.dart';
 import 'package:khel_darpan/Components/ScoreCard.dart';
 import 'package:khel_darpan/Components/RoundedButton.dart';
+import 'package:khel_darpan/screens/CalenderPage.dart';
 import '../Components/Constants/bottomNavigationBar.dart';
 import '../Components/UpcomingMatches.dart';
 
@@ -80,12 +81,15 @@ class HomePage extends StatelessWidget {
                         color: greyColor,
                       ),
                     ),
-                    Text(
-                      "See All",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: orangeColor,
+                    GestureDetector(
+                      onTap: () {},
+                      child: Text(
+                        "See All",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: orangeColor,
+                        ),
                       ),
                     ),
                   ],
