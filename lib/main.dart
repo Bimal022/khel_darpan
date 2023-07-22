@@ -6,11 +6,12 @@ import 'package:khel_darpan/screens/MyHomePage.dart'; // Import your MyHomePage
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  print("Initialized");
   await Firebase.initializeApp();
-
+  print("Initialized222222222");
   bool isUserLoggedIn =
       await checkUserLoggedIn(); // Check if the user is already signed in
-
+  print("UserChecked");
   runApp(MyApp(isUserLoggedIn: isUserLoggedIn));
 }
 
