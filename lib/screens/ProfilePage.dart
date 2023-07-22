@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import '../Components/Constants/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:khel_darpan/Components/Constants/constants.dart';
+
+import 'LoginPage.dart';
 
 enum Gender { Male, Female }
 
@@ -18,8 +22,9 @@ class _ProfilePageState extends State<ProfilePage> {
   String selectedProfileIcon = 'assets/defaultprofilepics/defaultDP1.png';
   String supportingTeam = "Country Name";
   String bio = "Hey there! I am usign KhelDarpan";
-  String name = 'John Doe'; // Default name
-  String username = 'johndoe'; // Default username
+  String name = loggedInUserName; // Default name
+  String username = loggedInUserEmail.replaceAll(
+      RegExp('@gmail.com'), ''); // Default username
 
   void _showProfilePictureMenu(BuildContext context) async {
     final icon = await showMenu<String>(
@@ -71,6 +76,26 @@ class _ProfilePageState extends State<ProfilePage> {
         );
       },
     );
+  }
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+  // Function to handle logout
+  Future<void> _handleLogout() async {
+    try {
+      await _googleSignIn.signOut(); // Sign out from Google
+      await _auth.signOut(); // Sign out from Firebase Authentication
+
+      // Navigate to the login page after successful logout.
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginPage()),
+      );
+    } catch (error) {
+      print('Logout Error: $error');
+      // Display an error message to the user (you can use a Snackbar or showDialog).
+    }
   }
 
   @override
@@ -199,7 +224,7 @@ class _ProfilePageState extends State<ProfilePage> {
           SizedBox(height: 24),
           ElevatedButton(
             onPressed: () {
-              // Handle the logout action
+              _handleLogout();
             },
             child: Text('Logout'),
           ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+late String loggedInUserName = "Jhon Doe";
+late String loggedInUserEmail = "UserName";
 //Buttons Color
 Color buttonColor = Colors.white;
 Color countryNameTextColor = Color(0xffB2B2B2);

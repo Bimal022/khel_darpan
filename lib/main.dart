@@ -1,50 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:khel_darpan/screens/CalenderPage.dart';
-import 'package:khel_darpan/screens/HomePage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:khel_darpan/screens/LoginPage.dart';
-import 'package:khel_darpan/screens/MedalsPage.dart';
-import 'package:khel_darpan/screens/ProfilePage.dart';
-import 'package:khel_darpan/screens/SignUpPage.dart';
-import 'Components/Constants/bottomNavigationBar.dart';
+import 'package:khel_darpan/screens/MyHomePage.dart'; // Import your MyHomePage
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  bool isUserLoggedIn =
+      await checkUserLoggedIn(); // Check if the user is already signed in
+
+  runApp(MyApp(isUserLoggedIn: isUserLoggedIn));
+}
+
+Future<bool> checkUserLoggedIn() async {
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  User? user = _auth.currentUser;
+  return user != null; // Return true if the user is logged in, otherwise false
+}
 
 class MyApp extends StatelessWidget {
+  final bool isUserLoggedIn;
+
+  MyApp({required this.isUserLoggedIn});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _currentIndex = 0;
-
-  final List<Widget> _pages = [
-    HomePage(),
-    CalenderPage(),
-    MedalsPage(),
-    ProfilePage(),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: _pages[_currentIndex],
-      bottomNavigationBar: apnabottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-      ),
+      home: isUserLoggedIn ? MyHomePage() : LoginPage(),
     );
   }
 }
