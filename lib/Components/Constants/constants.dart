@@ -19,3 +19,24 @@ const tableHeadingTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   color: Color(0xff909090),
 );
+
+final CustomTextStyle goldTextStyle = CustomTextStyle(color: Color(0xFFFFD700));
+final CustomTextStyle silverTextStyle =
+    CustomTextStyle(color: Color(0xFFBCC6CC));
+final CustomTextStyle bronzeTextStyle =
+    CustomTextStyle(color: Color(0xFFCD7F32));
+
+class CustomTextStyle {
+  final Color color;
+
+  CustomTextStyle({required this.color});
+
+  TextStyle get textStyle {
+    return TextStyle(
+      color: color,
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      // Add other properties you may need for the TextStyle
+    );
+  }
+}
