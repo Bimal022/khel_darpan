@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "234296605712",
+    "project_id": "kheldarpan-52f92",
+    "storage_bucket": "kheldarpan-52f92.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234296605712:android:f5d82585cf469d83ccde95",
+        "android_client_info": {
+          "package_name": "com.example.khel_darpan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234296605712-sk9pjon133mhi9lnpsjbv2jr5ag5bhr2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDspqMv-gJ7sFaKNPDK2ynwArEVBzVDjtg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234296605712-sk9pjon133mhi9lnpsjbv2jr5ag5bhr2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
