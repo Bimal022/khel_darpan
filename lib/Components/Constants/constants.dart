@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 
 late String loggedInUserName = "Jhon Doe";
 late String loggedInUserEmail = "UserName";
-late String loggedInUserDP = "assets/defaultprofilepics/defaultDP1.png";
-late String loggedInUserGender = "Male";
-late String loggedInUserBio = "Hey There! I Am Using Khel Darpan";
-late String loggedInUserTeam = "India";
 //Buttons Color
 Color buttonColor = Colors.white;
 Color countryNameTextColor = Color(0xffB2B2B2);

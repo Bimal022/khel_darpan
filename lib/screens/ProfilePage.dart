@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:khel_darpan/Components/Constants/constants.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'LoginPage.dart';
 
 enum Gender { Male, Female }
@@ -41,8 +41,74 @@ class _ProfilePageState extends State<ProfilePage> {
     if (icon != null) {
       setState(() {
         selectedProfileIcon = icon;
+        _fetchProfileDataFromFirestore();
       });
     }
+  }
+
+  // Firebase Firestore instance
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  // Function to push profile data to Firestore
+  Future<void> _pushProfileDataToFirestore() async {
+    try {
+      final currentUser = FirebaseAuth.instance.currentUser;
+      if (currentUser != null) {
+        // Document path for the user in Firestore
+        final docPath = 'users/${currentUser.uid}';
+
+        // Data to push to Firestore
+        final userData = {
+          'dp': selectedProfileIcon,
+          'name': name,
+          'username': username,
+          'gender': selectedGender == Gender.Male ? 'Male' : 'Female',
+          'bio': bio,
+          'supporting_team': supportingTeam,
+        };
+
+        // Update the data in Firestore
+        await _firestore.doc(docPath).set(userData);
+      }
+    } catch (error) {
+      print('Firestore Data Push Error: $error');
+    }
+  }
+
+  // Function to fetch profile data from Firestore
+  Future<void> _fetchProfileDataFromFirestore() async {
+    try {
+      final currentUser = FirebaseAuth.instance.currentUser;
+      if (currentUser != null) {
+        // Document path for the user in Firestore
+        final docPath = 'users/${currentUser.uid}';
+
+        // Fetch the data from Firestore
+        final docSnapshot = await _firestore.doc(docPath).get();
+
+        // Update the state with the fetched data
+        if (docSnapshot.exists) {
+          final data = docSnapshot.data();
+          setState(() {
+            selectedProfileIcon = data?['dp'];
+            name = data?['name'] ?? name;
+            username = data?['username'] ?? username;
+            selectedGender =
+                data?['gender'] == 'Male' ? Gender.Male : Gender.Female;
+            bio = data?['bio'] ?? bio;
+            supportingTeam = data?['supporting_team'] ?? supportingTeam;
+          });
+        }
+      }
+    } catch (error) {
+      print('Firestore Data Fetch Error: $error');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchProfileDataFromFirestore();
   }
 
   void _showEditDialog(
@@ -68,6 +134,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ElevatedButton(
               onPressed: () {
                 onSaved(textEditingController.text);
+                _pushProfileDataToFirestore();
                 Navigator.pop(context); // Close the dialog after saving
               },
               child: Text('Save'),

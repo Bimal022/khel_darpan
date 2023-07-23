@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // Import Firebase Auth package
-import 'package:google_sign_in/google_sign_in.dart'; // Import Google Sign-In package
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:khel_darpan/screens/SignUpPage.dart';
 import '../Components/Constants/constants.dart';
 import 'MyHomePage.dart';
