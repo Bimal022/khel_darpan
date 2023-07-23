@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:khel_darpan/screens/FreindsPage.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -68,9 +69,12 @@ class _SearchPageState extends State<SearchPage> {
                 title: Text(user[
                     'name']), // Replace with the field name containing the user's name
                 onTap: () {
-                  // Perform an action when a user is selected from the dropdown
-                  // For example, you can navigate to the user's profile page.
-                  // You can pass the user data to the profile page using Navigator arguments.
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => FriendsPage(userData: user),
+                    ),
+                  );
                 },
               );
             },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:khel_darpan/Components/Constants/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -167,138 +168,192 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: Text('User Profile'),
-      ),
-      body: ListView(
-        padding: EdgeInsets.all(16),
-        children: [
-          GestureDetector(
-            onTap: () {
-              _showProfilePictureMenu(context);
-            },
-            child: Center(
-              child: Hero(
-                tag: 'profile_picture', // Unique tag for the Hero widget
-                child: CircleAvatar(
-                  radius: 50,
-                  backgroundColor: Colors.transparent,
-                  backgroundImage: AssetImage(selectedProfileIcon),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.blue, Colors.purple],
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () {
+                _showProfilePictureMenu(context);
+              },
+              child: Center(
+                child: Hero(
+                  tag: 'profile_picture', // Unique tag for the Hero widget
+                  child: CircleAvatar(
+                    radius: 50,
+                    backgroundColor: Colors.transparent,
+                    backgroundImage: AssetImage(selectedProfileIcon),
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(height: 16),
-          GestureDetector(
-            onTap: () {
-              _showEditDialog('Edit Name', name, (value) {
-                setState(() {
-                  name = value;
+            SizedBox(height: 16),
+            GestureDetector(
+              onTap: () {
+                _showEditDialog('Edit Name', name, (value) {
+                  setState(() {
+                    name = value;
+                  });
                 });
-              });
-            },
-            child: Text(
-              name,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+              },
+              child: Text(
+                name,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
             ),
-          ),
-          GestureDetector(
-            onTap: () {
-              _showEditDialog('Edit Username', username, (value) {
-                setState(() {
-                  username = value;
+            GestureDetector(
+              onTap: () {
+                _showEditDialog('Edit Username', username, (value) {
+                  setState(() {
+                    username = value;
+                  });
                 });
-              });
-            },
-            child: Text(
-              '@$username', // Display the user's username
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey,
+              },
+              child: Text(
+                '@$username', // Display the user's username
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey[300],
+                ),
               ),
             ),
-          ),
-          SizedBox(height: 16),
-          ListTile(
-            leading: Icon(Icons.face),
-            title: Text('Gender'),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Radio<Gender>(
-                  value: Gender.Male,
-                  activeColor: Color(0xFFB917D8),
-                  groupValue: selectedGender,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedGender = value!;
-                    });
-                  },
+            SizedBox(height: 16),
+            ListTile(
+              leading: Icon(Icons.face, color: Colors.white),
+              title: Text(
+                'Gender',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
                 ),
-                Text('Male'),
-                Radio<Gender>(
-                  value: Gender.Female,
-                  activeColor: Color(0xFFB917D8),
-                  groupValue: selectedGender,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedGender = value!;
-                    });
-                  },
+              ),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Radio<Gender>(
+                    value: Gender.Male,
+                    activeColor: Color(0xFFB917D8),
+                    groupValue: selectedGender,
+                    onChanged: (value) {
+                      setState(() {
+                        selectedGender = value!;
+                      });
+                    },
+                  ),
+                  Text(
+                    'Male',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  Radio<Gender>(
+                    value: Gender.Female,
+                    activeColor: Color(0xFFB917D8),
+                    groupValue: selectedGender,
+                    onChanged: (value) {
+                      setState(() {
+                        selectedGender = value!;
+                      });
+                    },
+                  ),
+                  Text(
+                    'Female',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.info, color: Colors.white),
+              title: Text(
+                'Bio',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
                 ),
-                Text('Female'),
-              ],
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.info),
-            title: Text('Bio'),
-            subtitle: Text(bio), // Replace with the user's bio
-            onTap: () {
-              _showEditDialog('Edit Bio', bio, (value) {
-                setState(() {
-                  bio = value;
+              ),
+              subtitle: Text(
+                bio,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              onTap: () {
+                _showEditDialog('Edit Bio', bio, (value) {
+                  setState(() {
+                    bio = value;
+                  });
                 });
-              });
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.group),
-            title: Text("Supporting Team"),
-            subtitle:
-                Text(supportingTeam), // Replace with the supporting team name
-            onTap: () {
-              _showEditDialog('Edit Supporting Team', supportingTeam, (value) {
-                setState(() {
-                  supportingTeam = value;
-                });
-              });
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.lock),
-            title: Text('Change Password'),
-            onTap: () {
-              // Handle the change password action
-            },
-          ),
-          SizedBox(height: 24),
-          ElevatedButton(
-            onPressed: () {
-              _handleLogout();
-            },
-            child: Text('Logout'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFFB917D8),
+              },
             ),
-          ),
-        ],
+            ListTile(
+              leading: Icon(Icons.group, color: Colors.white),
+              title: Text(
+                "Supporting Team",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+              subtitle: Text(
+                supportingTeam,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              onTap: () {
+                _showEditDialog('Edit Supporting Team', supportingTeam,
+                    (value) {
+                  setState(() {
+                    supportingTeam = value;
+                  });
+                });
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.lock, color: Colors.white),
+              title: Text(
+                'Change Password',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+              onTap: () {
+                // Handle the change password action
+              },
+            ),
+            SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: () {
+                _handleLogout();
+              },
+              child: Text('Logout'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFFB917D8),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
