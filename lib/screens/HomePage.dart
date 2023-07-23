@@ -3,6 +3,7 @@ import 'package:khel_darpan/Components/Constants/constants.dart';
 import 'package:khel_darpan/Components/ScoreCard.dart';
 import 'package:khel_darpan/Components/RoundedButton.dart';
 import 'package:khel_darpan/screens/CalenderPage.dart';
+import 'package:khel_darpan/screens/SearchPage.dart';
 import '../Components/Constants/bottomNavigationBar.dart';
 import '../Components/UpcomingMatches.dart';
 
@@ -45,7 +46,11 @@ class HomePage extends StatelessWidget {
                           color: Colors.black,
                         ),
                         onPressed: () {
-                          // Perform search action
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SearchPage()),
+                          );
                         },
                       ),
                     ),

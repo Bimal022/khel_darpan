@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import '../Components/Constants/bottomNavigationBar.dart';
-import 'CalenderPage.dart';
-import 'HomePage.dart';
-import 'MedalsPage.dart';
-import 'ProfilePage.dart';
+import 'Components/Constants/bottomNavigationBar.dart';
+import 'screens/CalenderPage.dart';
+import 'screens/HomePage.dart';
+import 'screens/MedalsPage.dart';
+import 'screens/ProfilePage.dart';
 
-class MyHomePage extends StatefulWidget {
+class RoutesPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _RoutesPageState createState() => _RoutesPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _RoutesPageState extends State<RoutesPage> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [

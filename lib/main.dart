@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:khel_darpan/screens/LoginPage.dart';
-import 'package:khel_darpan/screens/MyHomePage.dart'; // Import your MyHomePage
+import 'package:khel_darpan/routesPage.dart'; // Import your MyHomePage
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: isUserLoggedIn ? MyHomePage() : LoginPage(),
+      home: isUserLoggedIn ? RoutesPage() : LoginPage(),
     );
   }
 }

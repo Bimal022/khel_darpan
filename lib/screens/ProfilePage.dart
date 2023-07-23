@@ -154,7 +154,6 @@ class _ProfilePageState extends State<ProfilePage> {
       await _googleSignIn.signOut(); // Sign out from Google
       await _auth.signOut(); // Sign out from Firebase Authentication
 
-      // Navigate to the login page after successful logout.
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => LoginPage()),
@@ -262,8 +261,7 @@ class _ProfilePageState extends State<ProfilePage> {
             title: Text('Bio'),
             subtitle: Text(bio), // Replace with the user's bio
             onTap: () {
-              _showEditDialog('Edit Bio', 'I am a passionate Flutter developer',
-                  (value) {
+              _showEditDialog('Edit Bio', bio, (value) {
                 setState(() {
                   bio = value;
                 });
@@ -276,8 +274,7 @@ class _ProfilePageState extends State<ProfilePage> {
             subtitle:
                 Text(supportingTeam), // Replace with the supporting team name
             onTap: () {
-              _showEditDialog('Edit Supporting Team', 'Enter Country Name',
-                  (value) {
+              _showEditDialog('Edit Supporting Team', supportingTeam, (value) {
                 setState(() {
                   supportingTeam = value;
                 });

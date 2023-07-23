@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:khel_darpan/screens/SignUpPage.dart';
 import '../Components/Constants/constants.dart';
-import 'MyHomePage.dart';
+import '../routesPage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
       // Navigate to the home page after successful sign-in.
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => MyHomePage()),
+        MaterialPageRoute(builder: (context) => RoutesPage()),
       );
     } catch (error) {
       print('Google Sign-In Error: $error');
