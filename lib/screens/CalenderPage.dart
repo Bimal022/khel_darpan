@@ -10,6 +10,7 @@ class CalenderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
+      padding: EdgeInsets.only(top: 50, left: 8, right: 8),
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(10),

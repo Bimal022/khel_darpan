@@ -10,6 +10,7 @@ class MedalsPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
+          padding: EdgeInsets.only(top: 50, left: 8, right: 8),
           width: double.infinity,
           decoration: BoxDecoration(
             color: backgroundColor,
