@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:khel_darpan/Components/Constants/constants.dart';
 import 'package:khel_darpan/Components/ScoreCard.dart';
 import 'package:khel_darpan/Components/RoundedButton.dart';
-import 'package:khel_darpan/screens/CalenderPage.dart';
 import 'package:khel_darpan/screens/SearchPage.dart';
-import '../Components/Constants/bottomNavigationBar.dart';
 import '../Components/UpcomingMatches.dart';
 
 class HomePage extends StatelessWidget {
@@ -63,11 +61,11 @@ class HomePage extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    RoundedButton('India', 'assets/flags/ind.png'),
-                    RoundedButton('Pakistan', 'assets/flags/ind.png'),
-                    RoundedButton('Button 3', 'assets/flags/ind.png'),
-                    RoundedButton('Button 4', 'assets/flags/ind.png'),
-                    RoundedButton('Button 5', 'assets/flags/ind.png'),
+                    RoundedButton('India', 'assets/flags/india.png'),
+                    RoundedButton('Australia', 'assets/flags/aus.png'),
+                    RoundedButton('China', 'assets/flags/china.png'),
+                    RoundedButton('Germany', 'assets/flags/germany.png'),
+                    RoundedButton('France', 'assets/flags/france.png'),
                   ],
                 ),
               ),

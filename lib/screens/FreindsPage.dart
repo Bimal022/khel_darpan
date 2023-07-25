@@ -49,26 +49,23 @@ class FriendsPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.grey[300],
-                  fontFamily: 'Roboto', // Replace with your desired font family
+                  fontFamily: 'Roboto',
                 ),
               ),
             ),
             SizedBox(height: 24),
             _buildInfoRow(
-              icon: FontAwesomeIcons
-                  .venusMars, // Replace with the desired Font Awesome icon
+              icon: FontAwesomeIcons.venusMars,
               label: 'Gender:',
               value: userData['gender'],
             ),
             _buildInfoRow(
-              icon: FontAwesomeIcons
-                  .infoCircle, // Replace with the desired Font Awesome icon
+              icon: FontAwesomeIcons.circleInfo,
               label: 'Bio:',
               value: userData['bio'],
             ),
             _buildInfoRow(
-              icon: FontAwesomeIcons
-                  .users, // Replace with the desired Font Awesome icon
+              icon: FontAwesomeIcons.users,
               label: 'Supporting Team:',
               value: userData['supporting_team'],
             ),

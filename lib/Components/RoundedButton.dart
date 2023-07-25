@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:khel_darpan/Components/Constants/constants.dart';
 
 class RoundedButton extends StatefulWidget {
   final String buttonText;
@@ -35,17 +34,17 @@ class _RoundedButtonState extends State<RoundedButton> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CircleAvatar(
-              backgroundColor: Colors.white,
-              child: ImageIcon(
-                AssetImage(widget.flagPath),
-                size: 24, // Increase the size of the image
-              ),
+              backgroundColor: Colors.transparent,
+              child: Image.asset(widget.flagPath),
             ),
-            Text(
-              widget.buttonText,
-              style: TextStyle(
-                color: isSelected ? Colors.white : Color(0xffB2B2B2),
-                fontSize: 16, // Increase the size of the text
+            Expanded(
+              child: Text(
+                widget.buttonText,
+                overflow: TextOverflow.fade,
+                style: TextStyle(
+                  color: isSelected ? Colors.white : Color(0xffB2B2B2),
+                  fontSize: 16, // Increase the size of the text
+                ),
               ),
             ),
           ],

@@ -232,7 +232,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 16),
             ListTile(
-              leading: Icon(Icons.face, color: Colors.white),
+              leading: FaIcon(FontAwesomeIcons.venusMars),
               title: Text(
                 'Gender',
                 style: TextStyle(
@@ -280,7 +280,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.info, color: Colors.white),
+              leading: FaIcon(FontAwesomeIcons.circleInfo, color: Colors.white),
               title: Text(
                 'Bio',
                 style: TextStyle(
@@ -304,7 +304,7 @@ class _ProfilePageState extends State<ProfilePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.group, color: Colors.white),
+              leading: FaIcon(FontAwesomeIcons.users, color: Colors.white),
               title: Text(
                 "Supporting Team",
                 style: TextStyle(
