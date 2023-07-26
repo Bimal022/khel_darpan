@@ -4,6 +4,7 @@ import 'package:khel_darpan/Components/ScoreCard.dart';
 import 'package:khel_darpan/Components/RoundedButton.dart';
 import 'package:khel_darpan/screens/SearchPage.dart';
 import '../Components/UpcomingMatches.dart';
+import 'CalenderPage.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -85,7 +86,14 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CalenderPage(),
+                          ),
+                        );
+                      },
                       child: Text(
                         "See All",
                         style: TextStyle(

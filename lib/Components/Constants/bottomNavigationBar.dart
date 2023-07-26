@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class apnabottomNavigationBar extends StatelessWidget {
+class customNavigationBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
-  const apnabottomNavigationBar({
+  const customNavigationBar({
     required this.currentIndex,
     required this.onTap,
   });
@@ -22,10 +23,8 @@ class apnabottomNavigationBar extends StatelessWidget {
           ),
         ),
         BottomNavigationBarItem(
-          label: "Calender",
-          icon: ImageIcon(
-            AssetImage("assets/icons/navigationIcons/calendar.png"),
-          ),
+          label: "Predict",
+          icon: Icon(Icons.analytics_outlined),
         ),
         BottomNavigationBarItem(
           label: "Medals",

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:khel_darpan/Components/Constants/constants.dart';
 
 class PredictionPage extends StatefulWidget {
   const PredictionPage({super.key});
@@ -15,12 +16,7 @@ class _PredictionPageState extends State<PredictionPage> {
   double predictionPercentage = 0.0;
 
   void calculatePrediction() {
-    // Add your prediction calculation logic here based on the inputs.
-    // For this example, I'll just use a simple average of the three inputs.
-    double average = (sport.length + country1.length + country2.length) / 3;
-    setState(() {
-      predictionPercentage = average * 100;
-    });
+
   }
 
   @override
@@ -32,6 +28,7 @@ class _PredictionPageState extends State<PredictionPage> {
       body: SingleChildScrollView(
         child: Center(
           child: Container(
+            margin: EdgeInsets.only(top: 100),
             padding: EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -88,6 +85,9 @@ class _PredictionPageState extends State<PredictionPage> {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black, // Background color
+                  ),
                   onPressed: calculatePrediction,
                   child: Text('Predict'),
                 ),

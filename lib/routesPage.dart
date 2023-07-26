@@ -4,6 +4,7 @@ import 'screens/CalenderPage.dart';
 import 'screens/HomePage.dart';
 import 'screens/MedalsPage.dart';
 import 'screens/ProfilePage.dart';
+import 'screens/PredictionPage.dart';
 
 class RoutesPage extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _RoutesPageState extends State<RoutesPage> {
 
   final List<Widget> _pages = [
     HomePage(),
-    CalenderPage(),
+    PredictionPage(),
     MedalsPage(),
     ProfilePage(),
   ];
@@ -24,7 +25,7 @@ class _RoutesPageState extends State<RoutesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_currentIndex],
-      bottomNavigationBar: apnabottomNavigationBar(
+      bottomNavigationBar: customNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {

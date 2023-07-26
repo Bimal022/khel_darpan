@@ -30,8 +30,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: PredictionPage(),
-      // home: isUserLoggedIn ? RoutesPage() : LoginPage(),
+      home: isUserLoggedIn ? RoutesPage() : LoginPage(),
     );
   }
 }
